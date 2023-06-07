@@ -170,8 +170,10 @@ def verify_from_db(Model, min_dist, vector_input):
     identity = 'unknown09123' 
     for rows in db:
         vector_db = rows.vector
-        vector_db = np.fromstring(vector_db[2:-2], sep=' ') 
-        dist = spatial.distance.cosine(vector_input[0][0],vector_db)
+        vector_db = np.fromstring(vector_db[2:-2], sep=' ')
+        input_flat = vector_input.flatten()
+        db_flat = vector_db.flatten()
+        dist = spatial.distance.cosine(input_flat,db_flat)
         if dist < min_dist:
             min_dist = dist
             identity = rows.full_name 

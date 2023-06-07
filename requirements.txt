@@ -36,6 +36,7 @@ scikit-build
 scipy>=0.17.0
 dlib
 face_recognition_models
+flask
 flask-cors 
 flask-migrate
 flask-sqlalchemy
